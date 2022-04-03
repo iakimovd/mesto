@@ -1,4 +1,4 @@
-.profile__info_name {
+.profile__name {
   max-width: 294px;
   margin: 0;
   margin-right: 18px;
@@ -15,14 +15,14 @@
 }
 
 @media screen and (max-width: 900px) {
-  .profile__info_name {
+  .profile__name {
     width: 282px;
     margin-left: auto;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .profile__info_name {
+  .profile__name {
     width: 194px;
     margin-right: 10px;
     font-weight: 500;
