@@ -5,7 +5,7 @@
 * CSS
 * JavaScript
 ------
-#### Ссылка на проект в GitHub Pages: https://iakimovd.github.io/how-to-learn/
+#### Ссылка на проект в GitHub Pages: https://iakimovd.github.io/mesto/
 ### Так же данный проект:
 * Написан по БЭМ методологии:
 1. HTML вёрстка выполнена в БЭМ-терминах.
