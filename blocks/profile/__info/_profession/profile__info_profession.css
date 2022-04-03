@@ -5,7 +5,11 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
 @media screen and (max-width: 900px) {
   .profile__info_profession {
     margin-left: auto;

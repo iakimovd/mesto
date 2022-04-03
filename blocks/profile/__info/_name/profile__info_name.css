@@ -1,4 +1,5 @@
 .profile__info_name {
+  max-width: 294px;
   margin: 0;
   margin-right: 18px;
   margin-bottom: 16px;
@@ -6,17 +7,23 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 1.14;
+  text-align: center;
   align-self: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 900px) {
   .profile__info_name {
+    width: 282px;
     margin-left: auto;
   }
 }
 
 @media screen and (max-width: 600px) {
   .profile__info_name {
+    width: 194px;
     margin-right: 10px;
     font-weight: 500;
     font-size: 27px;

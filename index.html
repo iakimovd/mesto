@@ -23,10 +23,10 @@
         <img class="profile__avatar" src="./images/cousteau.jpg" />
         <div class="profile__info">
           <p class="profile__info_name">Жак-Ив Кусто</p>
-          <div class="profile__info_edit-button"></div>
-          <p class="profile__info_profession">Исследователь океана</p>          
+          <button class="profile__info_edit-button" type="button"></button>
+          <p class="profile__info_profession">Исследователь океана</p>
         </div>
-        
+
         <div class="profile__add-button"></div>
       </section>
 
@@ -34,7 +34,7 @@
       <section class="elements-section">
         <ul class="elements">
           <li class="element">
-            <img class="element__image" src="./images/karachaevsk.jpg" />
+            <img class="element__image" src="./images/karachaevsk.jpg" alt="Картинка"/>
             <div class="element__description">
               <p class="element__title">Карачаевск</p>
               <button class="element__like-button"></button>
@@ -85,16 +85,15 @@
     </footer>
 
     <!-- POPUP -->
-    <div class="popup popup_opened">
+    <div class="popup">
       <div class="popup__container">
         <p class="popup__container_title">Редактировать профиль</p>
-        <input class="popup__container_name-edit">
-        <input class="popup__container_profession-edit">
+        <input class="popup__container_name-edit" placeholder="Жак-Ив Кусто"/>
+        <input class="popup__container_profession-edit" placeholder="Исследователь океана"/>
         <button class="popup__container_save-button">Сохранить</button>
-        <button class="popup__close-button"></button>
+        <button class="popup__close-button" type="submit"></button>
       </div>
-      
     </div>
-
+    <script src="/scripts/index.js"></script>
   </body>
 </html>
