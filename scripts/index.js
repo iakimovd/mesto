@@ -14,8 +14,6 @@ closeButton.addEventListener('click', popupClose);
 saveButton.addEventListener('click', formSubmitHandler);
 
 function popupActivate() {
-  // nameEdit.textContent = nameInput.value;
-  // jobEdit.textContent = jobInput.value;
   let popup = document.querySelector('.popup');
   popup.classList.add('popup_opened');
 }
