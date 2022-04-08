@@ -20,59 +20,86 @@
     <main class="content">
       <!-- Profile -->
       <section class="profile">
-        <img class="profile__avatar" src="./images/cousteau.jpg" alt="Фото Жак-Ив Кусто"/>
+        <img
+          class="profile__avatar"
+          src="./images/cousteau.jpg"
+          alt="Фото Жак-Ив Кусто"
+        />
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button"></button>
-          <h2 class="profile__profession">Исследователь океана</h2>
+          <p class="profile__profession">Исследователь океана</p>
         </div>
-
-        <div class="profile__add-button"></div>
+        <button class="profile__add-button" type="button"></button>
       </section>
 
       <!-- Elements -->
       <section class="elements-section">
         <ul class="elements">
           <li class="element">
-            <img class="element__image" src="./images/karachaevsk.jpg" alt="Картинка"/>
+            <img
+              class="element__image"
+              src="./images/karachaevsk.jpg"
+              alt="Картинка"
+            />
             <div class="element__description">
               <h3 class="element__title">Карачаевск</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button"></button>
             </div>
           </li>
           <li class="element">
-            <img class="element__image" src="./images/elbrus.jpg" alt="Картинка"/>
+            <img
+              class="element__image"
+              src="./images/elbrus.jpg"
+              alt="Картинка"
+            />
             <div class="element__description">
               <h3 class="element__title">Гора Эльбрус</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button"></button>
             </div>
           </li>
           <li class="element">
-            <img class="element__image" src="./images/dombai.jpg" alt="Картинка"/>
+            <img
+              class="element__image"
+              src="./images/dombai.jpg"
+              alt="Картинка"
+            />
             <div class="element__description">
               <h3 class="element__title">Домбай</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button"></button>
             </div>
           </li>
           <li class="element">
-            <img class="element__image" src="./images/elbrus.jpg" alt="Картинка"/>
+            <img
+              class="element__image"
+              src="./images/elbrus.jpg"
+              alt="Картинка"
+            />
             <div class="element__description">
               <h3 class="element__title">Гора Эльбрус</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button"></button>
             </div>
           </li>
           <li class="element">
-            <img class="element__image" src="./images/dombai.jpg" alt="Картинка"/>
+            <img
+              class="element__image"
+              src="./images/dombai.jpg"
+              alt="Картинка"
+            />
             <div class="element__description">
               <h3 class="element__title">Домбай</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button"></button>
             </div>
           </li>
           <li class="element">
-            <img class="element__image" src="./images/karachaevsk.jpg" alt="Картинка"/>
+            <img
+              class="element__image"
+              src="./images/karachaevsk.jpg"
+              alt="Картинка"
+            />
             <div class="element__description">
               <h3 class="element__title">Карачаево-Черкессия</h3>
-              <button class="element__like-button"></button>
+              <button class="element__like-button" type="button"></button>
             </div>
           </li>
         </ul>
@@ -88,10 +115,14 @@
     <div class="popup">
       <div class="popup__container">
         <h3 class="popup__title">Редактировать профиль</h3>
-        <input class="popup__name-edit" placeholder="Жак-Ив Кусто"/>
-        <input class="popup__profession-edit" placeholder="Исследователь океана"/>
-        <button class="popup__save-button">Сохранить</button>
-        <button class="popup__close-button" type="submit"></button>
+        <form class="popup__form" name="form">
+          <fieldset class="popup__input">
+            <input class="popup__name-edit" type="text" name="name" placeholder="Имя" />
+            <input class="popup__profession-edit" type="text" name="job" placeholder="Профессия" />
+          </fieldset>
+          <button class="popup__save-button" type="submit">Сохранить</button>
+        </form>
+        <button class="popup__close-button" type="button"></button>
       </div>
     </div>
     <script src="./scripts/index.js"></script>
