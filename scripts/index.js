@@ -93,6 +93,7 @@ function getCards(item) {
   title.textContent = item.name;
   const src = cardElement.querySelector('.element__image');
   src.src = item.link;
+  src.alt = item.name;
 
   likeButton.addEventListener('click', function likeActivate() {
     likeButton.classList.toggle('element__like-button_active');
@@ -111,6 +112,7 @@ function getCards(item) {
     const popupPictureDescription = document.querySelector('.popup__picture-description');
     popupPictureDescription.textContent = item.name;
     popupImage.src = item.link;
+    popupImage.alt = item.name;
     console.log('Open big picture');
   });
 
