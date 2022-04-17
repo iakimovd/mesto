@@ -91,12 +91,12 @@ function render() {
 
 function getCards(item) {
   const cardElement = cardTemplate.content.cloneNode(true);
-  const title = cardElement.querySelector('.element__title');
+  const cardTitle = cardElement.querySelector('.element__title');
   const likeButton = cardElement.querySelector('.element__like-button');
   const deleteButton = cardElement.querySelector('.element__delete-button');
   const openPictureButton = cardElement.querySelector('.element__picture-button');
   const cardImage = cardElement.querySelector('.element__image');
-  title.textContent = item.name;
+  cardTitle.textContent = item.name;
   cardImage.src = item.link;
   cardImage.alt = item.name;
 
