@@ -50,7 +50,11 @@ const cardNameInput = addCardForm.querySelector('.popup__input_type_card-name');
 const linkInput = addCardForm.querySelector('.popup__input_type_link');
 
 // Buttons
-editProfileButton.addEventListener('click', () => openPopup(profilePopup));
+editProfileButton.addEventListener('click', function () {
+  openPopup(profilePopup);
+  nameInput.value = nameEdit.textContent;
+  jobInput.value = jobEdit.textContent;
+});
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 addCardButton.addEventListener('click', () => openPopup(addCardPopup));
 addCardCloseButton.addEventListener('click', () => closePopup(addCardPopup));
@@ -77,7 +81,7 @@ function handleProfileFormSubmit(evt) {
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
-  const element = getCards({name: cardNameInput.value, link: linkInput.value});
+  const element = getCards({ name: cardNameInput.value, link: linkInput.value });
   cards.prepend(element);
   cardNameInput.value = "";
   linkInput.value = "";
@@ -111,8 +115,8 @@ function getCards(item) {
     console.log('Card Deleted');
   });
 
-  openPictureButton.addEventListener('click', function showPicturePopup() {
-    openPicturePopup.classList.add('popup_opened');
+  openPictureButton.addEventListener('click', function () {
+    openPopup(openPicturePopup);
     popupPictureDescription.textContent = item.name;
     popupImage.src = item.link;
     popupImage.alt = item.name;
