@@ -6,14 +6,10 @@
   opacity: 1;
   position: absolute;
   top: 30px;
-  /* left: 36px; */
-  /* transition: 0.3s; */
-  /* z-index: 1; */
 }
 
 .popup__input-error:last-child {
   top: 90px;
-  /* z-index: 1; */
 }
 
 @media screen and (max-width: 600px) {
