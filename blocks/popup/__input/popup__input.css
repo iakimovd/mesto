@@ -12,11 +12,16 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  /* z-index: 2; */
 }
 
 .popup__input:last-child {
   margin-bottom: 0;
 }
+
+/* .popup__input.popup__input_type_error {
+  border-bottom: 1px solid rgba(255, 0, 20, .2);
+} */
 
 @media screen and (max-width: 600px) {
   .popup__input {

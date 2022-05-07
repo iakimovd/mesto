@@ -1,0 +1,23 @@
+.popup__input-error {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: red;
+  opacity: 1;
+  position: absolute;
+  top: 30px;
+  /* left: 36px; */
+  /* transition: 0.3s; */
+  /* z-index: 1; */
+}
+
+.popup__input-error:last-child {
+  top: 90px;
+  /* z-index: 1; */
+}
+
+@media screen and (max-width: 600px) {
+  .popup__input-error {
+    left: 22px;
+  }
+}
