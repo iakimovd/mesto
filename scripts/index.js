@@ -32,7 +32,6 @@ editProfileButton.addEventListener('click', function () {
 });
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 addCardButton.addEventListener('click', function ()  {
-  const form = addCardForm.querySelector('.popup__form')
   toggleSaveButton(inputList, addCardSaveButton, config.inactiveButtonClass);
   openPopup(addCardPopup);
 });
