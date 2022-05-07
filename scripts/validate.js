@@ -1,4 +1,4 @@
-const config = {
+const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   buttonSelector: '.popup__save-button',
@@ -39,8 +39,7 @@ function hideInputError(inputSelector, inputErrorClass, errorNode) {
 }
 
 function checkInputValidaty(inputList) {
-  console.log(inputList);
-  return inputList.some(function(input) {
+  return inputList.some(function (input) {
     return !input.validity.valid;
   });
 };
@@ -51,15 +50,16 @@ function toggleSaveButton(inputList, saveButton, inactiveButtonClass) {
   } else {
     enableSaveButton(saveButton, inactiveButtonClass);
   }
-  console.log(saveButton);
 }
 
 function disableSaveButton(inputList, saveButton, inactiveButtonClass) {
   saveButton.classList.add(inactiveButtonClass);
+  saveButton.disabled = true;
 }
 
 function enableSaveButton(saveButton, inactiveButtonClass) {
   saveButton.classList.remove(inactiveButtonClass);
+  saveButton.disabled = false;
 }
 
 function enableValidation({ formSelector, ...rest }) {
@@ -72,4 +72,4 @@ function enableValidation({ formSelector, ...rest }) {
   });
 }
 
-enableValidation(config);
+enableValidation(validationConfig);

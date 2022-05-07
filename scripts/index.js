@@ -31,8 +31,8 @@ editProfileButton.addEventListener('click', function () {
   jobInput.value = jobEdit.textContent;
 });
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
-addCardButton.addEventListener('click', function ()  {
-  toggleSaveButton(inputList, addCardSaveButton, config.inactiveButtonClass);
+addCardButton.addEventListener('click', function () {
+  toggleSaveButton(inputList, addCardSaveButton, validationConfig.inactiveButtonClass);
   openPopup(addCardPopup);
 });
 addCardCloseButton.addEventListener('click', () => closePopup(addCardPopup));
@@ -42,14 +42,12 @@ addCardForm.addEventListener('submit', handleAddCardFormSubmit);
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  console.log('open popup');
   content.addEventListener('keydown', closePopupEscPress);
   popup.addEventListener('click', closePopupOverlayClick);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  console.log('close popup');
   content.removeEventListener('keydown', closePopupEscPress);
   popup.removeEventListener('click', closePopupOverlayClick);
 }
@@ -77,19 +75,18 @@ function handleProfileFormSubmit(evt) {
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
-  const element = getCards({ name: cardNameInput.value, link: linkInput.value });
+  const element = createCard({ name: cardNameInput.value, link: linkInput.value });
   cards.prepend(element);
-  cardNameInput.value = "";
-  linkInput.value = "";
   closePopup(addCardPopup);
+  evt.target.reset();
 }
 
-function render() {
-  const html = initialCards.map(getCards);
-  cards.append(...html);
+function renderInitialCards() {
+  const cardsList = initialCards.map(createCard);
+  cards.append(...cardsList);
 }
 
-function getCards(item) {
+function createCard(item) {
   const cardElement = cardTemplate.content.cloneNode(true);
   const cardTitle = cardElement.querySelector('.element__title');
   const likeButton = cardElement.querySelector('.element__like-button');
@@ -102,13 +99,11 @@ function getCards(item) {
 
   likeButton.addEventListener('click', function toggleLike() {
     likeButton.classList.toggle('element__like-button_active');
-    console.log('Get Like');
   });
 
   deleteButton.addEventListener('click', function deleteCard(event) {
     const card = event.target.closest('.element');
     card.remove();
-    console.log('Card Deleted');
   });
 
   openPictureButton.addEventListener('click', function () {
@@ -116,10 +111,9 @@ function getCards(item) {
     popupPictureDescription.textContent = item.name;
     popupImage.src = item.link;
     popupImage.alt = item.name;
-    console.log('Open big picture');
   });
 
   return cardElement;
 }
 
-render();
+renderInitialCards();
