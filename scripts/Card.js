@@ -22,14 +22,17 @@ export class Card {
 
   _handleDeleteButton() {
     this._element.remove();
+    this._element = null;
   }
 
   generateCard() {
+
     this._element = this._getTemplate();
     this._setEventListeners();
+    const cardImage = this._element.querySelector('.element__image');
 
-    this._element.querySelector('.element__image').src = this._cardLink;
-    this._element.querySelector('.element__image').alt = this._cardName;
+    cardImage.src = this._cardLink;
+    cardImage.alt = this._cardName;
     this._element.querySelector('.element__title').textContent = this._cardName;
 
     return this._element;
@@ -47,5 +50,3 @@ export class Card {
     });
   }
 }
-
-

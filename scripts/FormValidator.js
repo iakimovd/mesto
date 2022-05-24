@@ -2,14 +2,15 @@ export class FormValidator {
   constructor(validationConfig, formSelector) {
     this._validationConfig = validationConfig;
     this._formSelector = formSelector;
+    this._inputList = Array.from(this._formSelector.querySelectorAll(this._validationConfig.inputSelector));
+    this._submitButton = this._formSelector.querySelector(this._validationConfig.buttonSelector);
   }
 
   _setEventListeners() {
-    const inputList = Array.from(this._formSelector.querySelectorAll(this._validationConfig.inputSelector));
-    inputList.forEach((input) => {
+    this._inputList.forEach((input) => {
       input.addEventListener('input', (event) => {
         this._handleFormInput(input);
-        this.toggleSaveButton(inputList);
+        this.toggleSaveButton();
       });
     });
   }
@@ -25,20 +26,19 @@ export class FormValidator {
     }
   }
 
-  _checkInputValidaty(inputList) {
-    return inputList.some(function (input) {
+  _checkInputValidaty() {
+    return this._inputList.some(function (input) {
       return !input.validity.valid;
     });
   };
 
-  toggleSaveButton(inputList) {
-    const saveButton = this._formSelector.querySelector(this._validationConfig.buttonSelector);
-    if (this._checkInputValidaty(inputList)) {
-      saveButton.disabled = true;
-      saveButton.classList.add(this._validationConfig.inactiveButtonClass);
+  toggleSaveButton() {
+    if (this._checkInputValidaty()) {
+      this._submitButton.disabled = true;
+      this._submitButton.classList.add(this._validationConfig.inactiveButtonClass);
     } else {
-      saveButton.classList.remove(this._validationConfig.inactiveButtonClass);
-      saveButton.disabled = false;
+      this._submitButton.classList.remove(this._validationConfig.inactiveButtonClass);
+      this._submitButton.disabled = false;
     }
   };
 

@@ -30,7 +30,6 @@ const popupPictureDescription = document.querySelector('.popup__picture-descript
 const addCardForm = document.querySelector('.popup__container_add-new-card');
 const cardNameInput = addCardForm.querySelector('.popup__input_type_card-name');
 const linkInput = addCardForm.querySelector('.popup__input_type_link');
-const inputList = Array.from(addCardForm.querySelectorAll('.popup__input'));
 
 const cardFormValidator = new FormValidator(validationConfig, addCardForm);
 const profileFormValidator = new FormValidator(validationConfig,  profileForm);
@@ -45,7 +44,7 @@ editProfileButton.addEventListener('click', function () {
 });
 profileCloseButton.addEventListener('click', () => closePopup(profilePopup));
 addCardButton.addEventListener('click', function () {
-  cardFormValidator.toggleSaveButton(inputList);
+  cardFormValidator.toggleSaveButton();
   openPopup(addCardPopup);
 });
 addCardCloseButton.addEventListener('click', () => closePopup(addCardPopup));
@@ -55,13 +54,13 @@ addCardForm.addEventListener('submit', handleAddCardFormSubmit);
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  content.addEventListener('keydown', closePopupEscPress);
+  document.addEventListener('keydown', closePopupEscPress);
   popup.addEventListener('click', closePopupOverlayClick);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  content.removeEventListener('keydown', closePopupEscPress);
+  document.removeEventListener('keydown', closePopupEscPress);
   popup.removeEventListener('click', closePopupOverlayClick);
 }
 
@@ -94,14 +93,16 @@ function handleAddCardFormSubmit(evt) {
   evt.target.reset();
 }
 
-initialCards.forEach((item) => {
-  // Создадим экземпляр карточки
+function createCard(item) {
   const card = new Card(item.name, item.link, '.card-template', openPhoto);
-  // Создаём карточку и возвращаем наружу
   const cardElement = card.generateCard();
-  // Добавляем в DOM
-  cards.append(cardElement);
-});
+  return cardElement;
+}
+
+function renderInitialCards() {
+  const cardsList = initialCards.map(createCard);
+  cards.append(...cardsList);
+}
 
 function openPhoto(name, link) {
   popupImage.alt = name;
@@ -109,3 +110,5 @@ function openPhoto(name, link) {
   popupPictureDescription.textContent = name;
   openPopup(openPicturePopup);
 }
+
+renderInitialCards();
