@@ -87,7 +87,7 @@ function handleProfileFormSubmit(evt) {
 
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
-  const element = new Card(cardNameInput.value, linkInput.value, '.card-template', openPhoto).generateCard();
+  const element = createCard({name: cardNameInput.value, link: linkInput.value});
   cards.prepend(element);
   closePopup(addCardPopup);
   evt.target.reset();
