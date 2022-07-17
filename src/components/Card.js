@@ -34,17 +34,21 @@ export class Card {
     this._element.querySelector('.element__delete-button').addEventListener('click', () => {
       this._handleDeleteButton();
     });
-    this._element.querySelector('.element__image').addEventListener('click', () => {
+
+    this._cardImage.addEventListener('click', () => {
       this._handleCardClick(this._cardName, this._cardLink)
     });
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._cardImage = this._element.querySelector('.element__image');
+
     this._setEventListeners();
-    const cardImage = this._element.querySelector('.element__image');
-    cardImage.src = this._cardLink;
-    cardImage.alt = this._cardName;
+
+    this._cardImage.src = this._cardLink;
+    this._cardImage.alt = this._cardName;
+
     this._element.querySelector('.element__title').textContent = this._cardName;
 
     return this._element;
