@@ -39,8 +39,8 @@ const addNewCardPopup = new PopupWithForm('.add-card-popup', {
 
 addCardButton.addEventListener('click', function () {
   addNewCardPopup.open();
+  cardFormValidator.resetValidation();
   cardFormValidator.toggleSaveButton();
-
 });
 
 addNewCardPopup.setEventListeners();
@@ -70,6 +70,7 @@ editProfileButton.addEventListener('click', function () {
   const profileData = userInfo.getUserInfo();
   nameInput.value = profileData.name;
   jobInput.value = profileData.info;
+  profileFormValidator.resetValidation();
   editProfilePopup.open();
 });
 

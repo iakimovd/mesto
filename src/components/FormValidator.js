@@ -15,17 +15,6 @@ export class FormValidator {
     });
   }
 
-  _handleFormInput(input) {
-    const errorNode = document.querySelector(`#${input.id}-error`);
-    if (input.validity.valid) {
-      errorNode.textContent = '';
-      input.classList.remove(this._validationConfig.inputErrorClass);
-    } else {
-      errorNode.textContent = input.validationMessage;
-      input.classList.add(this._validationConfig.inputErrorClass);
-    }
-  }
-
   _checkInputValidaty() {
     return this._inputList.some(function (input) {
       return !input.validity.valid;
@@ -41,6 +30,34 @@ export class FormValidator {
       this._submitButton.disabled = false;
     }
   };
+
+  _handleFormInput(input) {
+    if (input.validity.valid) {
+      this._hideError(input);
+    } else {
+      this._showError(input);
+    }
+  }
+
+  _showError(input) {
+    const errorNode = document.querySelector(`#${input.id}-error`);
+    errorNode.textContent = input.validationMessage;
+    input.classList.add(this._validationConfig.inputErrorClass);
+  }
+
+  _hideError(input) {
+    const errorNode = document.querySelector(`#${input.id}-error`);
+    errorNode.textContent = '';
+    input.classList.remove(this._validationConfig.inputErrorClass);
+  }
+
+  resetValidation() {
+    this.toggleSaveButton();
+
+    this._inputList.forEach((input) => {
+      this._hideError(input)
+    });
+  }
 
   enableValidation() {
     this._setEventListeners();
