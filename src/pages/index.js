@@ -30,7 +30,7 @@ cardList.renderItems();
 
 const addNewCardPopup = new PopupWithForm('.add-card-popup', {
   handleFormSubmit: (data) => {
-    const inputs = { name: cardNameInput.value, link: linkInput.value };
+    const inputs = { name: data.cardname, link: data.cardlink };
     const handleCard = createCard(inputs);
     cardList.addItem(handleCard);
     addNewCardPopup.close();
