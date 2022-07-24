@@ -5,4 +5,5 @@
   border-radius: 50%;
   justify-self: center;
   align-self: center;
+  object-fit: cover;
 }

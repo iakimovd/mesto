@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: "production",
   entry: "./src/pages/index.js",
+  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
@@ -60,6 +61,5 @@ module.exports = {
       template: './src/index.html'
     }),
     new MiniCssExtractPlugin(),
-
   ],
 }
