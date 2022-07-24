@@ -169,11 +169,9 @@ deleteCardPopup.setEventListeners();
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
-    console.log(userData);
     userId = userData._id;
     // userInfo.setUserInfo({ newUserName: userData.name, newUserInfo: userData.about, newUserAvatar: userData.avatar });
     userInfo.setUserInfo(userData);
-    console.log(cards);
     cardList.renderItems(cards.reverse());
   })
   .catch(err => { console.log(err) });
