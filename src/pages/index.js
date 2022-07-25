@@ -6,8 +6,9 @@ import { Section } from "../components/Section.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
-import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
+
 import { initialCards, validationConfig, avatarLinkInput, editAvatarForm, editAvatarButton, editProfileButton, addCardButton, profileForm, nameInput, jobInput, addCardForm, cardNameInput, linkInput } from "../utils/constants.js";
+import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
 
 const cardFormValidator = new FormValidator(validationConfig, addCardForm);
 const profileFormValidator = new FormValidator(validationConfig, profileForm);
@@ -32,16 +33,17 @@ const createCard = (data) => {
     '.card-template',
     openPhoto,
     userId,
-    (item) => {
+    () => {
       deleteCardPopup.open();
       deleteCardPopup.deleteCardConfirmation(() => {
-        api.deleteCard(item._id)
+        api.deleteCard(data._id)
           .then(() => {
             card.handleDeleteButton();
             deleteCardPopup.close();
           })
           .catch((err) => {
             console.log(err);
+            console.dir(err);
           });
       });
     },
