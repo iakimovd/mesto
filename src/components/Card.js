@@ -28,16 +28,16 @@ export class Card {
     return cardElement;
   }
 
-  addCardlike(data) {
+  addCardLike(data) {
     this._likeButton.classList.add('element__like-button_active');
     this._cardLikes = data.likes;
-    this._cardLikes.textContent = this._cardLikes.length;
+    this._likeCounter.textContent = this._cardLikes.length;
   }
 
   deleteCardLike(data) {
     this._likeButton.classList.remove('element__like-button_active');
     this._cardLikes = data.likes;
-    this._cardLikes.textContent = this._cardLikes.length;
+    this._likeCounter.textContent = this._cardLikes.length;
   }
 
 
@@ -61,9 +61,7 @@ export class Card {
     this._likeButton.addEventListener('click', this._handleLikeButton);
 
     this._deleteButton = this._element.querySelector('.element__delete-button');
-    this._deleteButton.addEventListener('click', () => {
-      this._handleCardDelete(this.data);
-    });
+    this._deleteButton.addEventListener('click', () => this._handleCardDelete(this.data));
 
     this._cardImage.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link)
@@ -84,7 +82,7 @@ export class Card {
     this._likeCounter.textContent = this._cardLikes.length;
 
     if (this._isLiked()) {
-      this.addCardLike(this._data)
+      this.addCardLike(this._data);
     };
 
     this._cardImage.src = this._link;

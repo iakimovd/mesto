@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: "production",
+  // mode: "production",
   entry: "./src/pages/index.js",
   devtool: "source-map",
   output: {
