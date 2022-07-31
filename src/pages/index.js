@@ -144,7 +144,7 @@ const editProfilePopup = new PopupWithForm('.profile-popup', {
     editProfilePopup.renderLoading(true);
     api.editUserInfo(data.name, data.job)
       .then((data) => {
-        userInfo.setUserInfo({ newUserName: data.name, newUserInfo: data.job })
+        userInfo.setUserInfo(data);
         editProfilePopup.close();
       })
       .catch((err) => {
@@ -158,7 +158,7 @@ const editProfilePopup = new PopupWithForm('.profile-popup', {
 editProfileButton.addEventListener('click', function () {
   const profileData = userInfo.getUserInfo();
   nameInput.value = profileData.name;
-  jobInput.value = profileData.info;
+  jobInput.value = profileData.job;
   profileFormValidator.resetValidation();
   editProfilePopup.open();
 });
@@ -172,7 +172,6 @@ deleteCardPopup.setEventListeners();
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
     userId = userData._id;
-    // userInfo.setUserInfo({ newUserName: userData.name, newUserInfo: userData.about, newUserAvatar: userData.avatar });
     userInfo.setUserInfo(userData);
     cardList.renderItems(cards.reverse());
   })
