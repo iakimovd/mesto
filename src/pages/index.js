@@ -125,7 +125,7 @@ addCardButton.addEventListener('click', function () {
 addNewCardPopup.setEventListeners();
 
 
-const popupWithImage = new PopupWithImage('.open-picture-popup');
+const popupWithImage = new PopupWithImage('.popup_picture-show');
 
 popupWithImage.setEventListeners();
 
