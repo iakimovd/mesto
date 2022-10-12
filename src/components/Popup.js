@@ -16,13 +16,13 @@ export class Popup {
   _handleEscClose = (evt) => {
     if (evt.key === 'Escape') {
       this.close();
-    };
+    }
   }
 
   _handleOverlayClickClose = (evt) => {
     if (evt.target === evt.currentTarget) {
       this.close();
-    };
+    }
   }
 
   setEventListeners() {

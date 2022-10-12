@@ -76,14 +76,14 @@ export class Card {
 
     if (this._ownerId === this._userId) {
       this._deleteButton.classList.add('element__delete-button_active');
-    };
+    }
 
     this._likeCounter = this._element.querySelector('.element__like-counter');
     this._likeCounter.textContent = this._cardLikes.length;
 
     if (this._isLiked()) {
       this.addCardLike(this._data);
-    };
+    }
 
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;

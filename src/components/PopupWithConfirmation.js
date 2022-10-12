@@ -18,6 +18,5 @@ export class PopupWithConfirmation extends Popup {
       this._handleFormSubmit();
       console.log('delete card');
     });
-    
   }
 }
